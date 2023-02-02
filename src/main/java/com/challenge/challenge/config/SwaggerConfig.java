@@ -13,7 +13,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info().title("Challenge")
                         .description(">" +
-                                "challenge.<br/>")
+                                "challenge.")
                         .version("v0.0.1")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }
