@@ -1,6 +1,7 @@
 package com.challenge.challenge.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import static javax.persistence.GenerationType.AUTO;
 @AllArgsConstructor
 @Data
 @Entity
+@Builder
 public class Symptom {
 
     @Id

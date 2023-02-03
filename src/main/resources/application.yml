@@ -1,0 +1,12 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /challenge
+spring:
+    datasource:
+        driverClassName: org.postgresql.Driver
+        password: challenge
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+    jpa:
+        database: postgresql

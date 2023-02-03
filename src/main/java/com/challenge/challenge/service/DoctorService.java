@@ -7,4 +7,7 @@ import java.util.UUID;
 public interface DoctorService {
 
     Doctor getDoctorById(UUID doctorId);
+
+
+    Doctor create(Doctor request);
 }

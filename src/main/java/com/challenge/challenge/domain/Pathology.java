@@ -1,6 +1,7 @@
 package com.challenge.challenge.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import static javax.persistence.GenerationType.AUTO;
 @AllArgsConstructor
 @Data
 @Entity
+@Builder
 public class Pathology {
     @Id
     @GeneratedValue(strategy = AUTO)
@@ -34,6 +36,6 @@ public class Pathology {
     private Set<Patient> pathologyPatients;
 
     @OneToMany(mappedBy = "pathology")
-    private Set<Symptom> Symptoms;
+    private Set<Symptom> symptoms;
 
 }

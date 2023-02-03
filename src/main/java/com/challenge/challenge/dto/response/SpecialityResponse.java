@@ -11,9 +11,9 @@ import java.util.UUID;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DoctorResponse {
+public class SpecialityResponse {
 
     private UUID id;
     private String name;
-
+    private DoctorResponse doctor;
 }

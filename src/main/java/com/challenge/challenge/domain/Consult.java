@@ -1,10 +1,13 @@
 package com.challenge.challenge.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import java.util.UUID;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -12,12 +15,13 @@ import static javax.persistence.GenerationType.AUTO;
 @AllArgsConstructor
 @Data
 @Entity
+@Builder
 public class Consult {
 
     @Id
     @GeneratedValue(strategy = AUTO)
     @Column(updatable = false, nullable = false)
-    private Long id;
+    private UUID id;
 
     @ManyToOne
     @JoinColumn(name="doctor_id")
