@@ -5,8 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 import java.util.UUID;
+
+import static javax.persistence.GenerationType.AUTO;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,12 +16,13 @@ import java.util.UUID;
 public class Symptom {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = AUTO)
     @Column(updatable = false, nullable = false)
     private UUID id;
 
     private String description;
 
-    @ManyToMany(mappedBy = "pathologySymptoms")
-    private Set<Pathology> pathologies;
+    @ManyToOne
+    @JoinColumn(name="pathology_id")
+    private Pathology pathology;
 }

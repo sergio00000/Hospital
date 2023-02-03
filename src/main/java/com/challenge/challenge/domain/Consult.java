@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.AUTO;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -13,7 +15,7 @@ import javax.persistence.*;
 public class Consult {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = AUTO)
     @Column(updatable = false, nullable = false)
     private Long id;
 

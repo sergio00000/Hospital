@@ -9,12 +9,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
     @Bean
-    public OpenAPI applicationCgdAPI() {
+    public OpenAPI applicationAPI()  {
         return new OpenAPI()
-                .info(new Info().title("Challenge")
-                        .description(">" +
-                                "challenge.")
-                        .version("v0.0.1")
-                        .license(new License().name("Apache 2.0").url("http://springdoc.org")));
+                .info(new Info()
+                        .title("Challenge")
+                        .description("challenge")
+                        .version("1.0.0")
+                        .license(new License()
+                                .name("Apache 2.0")
+                                .url("http://springdoc.org")));
+
     }
+
 }

@@ -5,8 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
+
+import static javax.persistence.GenerationType.AUTO;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,11 +17,16 @@ import java.util.UUID;
 @Entity
 public class Patient {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = AUTO)
     @Column(updatable = false, nullable = false)
     private UUID id;
 
     private String name;
+
+    private LocalDate dateOfBirth;
+
+    @OneToMany(mappedBy = "patient")
+    private Set<Consult> consults;
 
     @ManyToMany(mappedBy = "pathologyPatients")
     private Set<Pathology> pathologies;

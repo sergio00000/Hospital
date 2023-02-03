@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 import java.util.UUID;
+
+import static javax.persistence.GenerationType.AUTO;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,13 +16,15 @@ import java.util.UUID;
 @Entity
 public class Doctor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = AUTO)
     @Column(updatable = false, nullable = false)
     private UUID id;
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "speciality_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "doctor")
+    private Set<Consult> consult;
+
+    @OneToOne(mappedBy = "doctor")
     private Speciality speciality;
 }
