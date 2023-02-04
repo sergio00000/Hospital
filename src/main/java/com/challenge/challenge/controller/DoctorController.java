@@ -25,7 +25,7 @@ public class DoctorController implements DoctorApi {
     private final DoctorService service;
     private final ConversionService conversionService;
 
-    @GetMapping("/doctors/{id}")
+    @GetMapping("/{id}")
     @Override
     public ResponseEntity<DoctorResponse> getDoctorById(@PathVariable UUID id) {
         DoctorResponse response = this.conversionService.convert(service.getDoctorById(id), DoctorResponse.class);

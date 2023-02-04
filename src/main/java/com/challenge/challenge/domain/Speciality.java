@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.Set;
 import java.util.UUID;
 
-import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.GenerationType.AUTO;
 
 @NoArgsConstructor
@@ -24,7 +24,7 @@ public class Speciality {
     private UUID id;
     private String name;
 
-    @OneToOne(cascade = ALL)
+    @OneToOne(cascade = MERGE)
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     private Doctor doctor;
 

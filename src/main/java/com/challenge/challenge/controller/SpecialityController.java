@@ -10,11 +10,9 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -24,6 +22,13 @@ public class SpecialityController implements SpecialityApi {
     private final ConversionService conversionService;
 
     private final SpecialityService service;
+
+    @GetMapping
+    @Override
+    public ResponseEntity<SpecialityResponse> getAll() {
+        SpecialityResponse response = this.conversionService.convert(service.getAll(), SpecialityResponse.class);
+        return new ResponseEntity<>(response, OK);
+    }
 
     @Override
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})

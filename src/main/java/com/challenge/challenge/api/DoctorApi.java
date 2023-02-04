@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.UUID;
 
-@Tag(name = "Api Doctor", description = "Api for details Doctor by id")
+@Tag(name = "Api Doctor", description = "Api for details Doctor")
 public interface DoctorApi {
 
     @Operation(description = "Get Doctor by id",

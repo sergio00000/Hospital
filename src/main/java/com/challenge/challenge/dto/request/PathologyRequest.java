@@ -1,6 +1,6 @@
 package com.challenge.challenge.dto.request;
 
-import com.challenge.challenge.domain.Doctor;
+import com.challenge.challenge.domain.Speciality;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -12,8 +12,8 @@ import java.util.UUID;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SpecialityRequest {
+public class PathologyRequest {
     private UUID id;
     private String name;
-    private Doctor doctor;
+    private Speciality speciality;
 }

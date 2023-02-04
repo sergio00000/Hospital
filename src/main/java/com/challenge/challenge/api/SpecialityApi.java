@@ -11,6 +11,12 @@ import org.springframework.http.ResponseEntity;
 @Tag(name = "Api Specialities", description = "Api for details Specialities")
 public interface SpecialityApi {
 
+    @Operation(description = "Get all specialities",
+            tags = "Speciality",
+            method = OpenApi3Constants.GET)
+    @ApiResponse(responseCode = "200", description = OpenApi3Constants.MSG_STATUS_200)
+    ResponseEntity<SpecialityResponse> getAll();
+    
     @Operation(summary = "Create speciality in the database", description = "Create speciality in the database",
             tags = "Speciality", method = OpenApi3Constants.POST)
     @ApiResponse(responseCode = "201", description = OpenApi3Constants.MSG_STATUS_201)

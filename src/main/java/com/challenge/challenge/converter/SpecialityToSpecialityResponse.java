@@ -19,6 +19,7 @@ public class SpecialityToSpecialityResponse implements Converter<Speciality, Spe
                         .doctor(ofNullable(s.getDoctor())
                                 .map(d -> DoctorResponse.builder()
                                         .id(d.getId())
+                                        .name(d.getName())
                                         .build())
                                 .orElse(null))
                         .build())
