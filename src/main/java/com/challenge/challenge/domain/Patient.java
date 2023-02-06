@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -31,5 +32,5 @@ public class Patient {
     private Set<Consult> consults;
 
     @ManyToMany(mappedBy = "pathologyPatients")
-    private Set<Pathology> pathologies;
+    private List<Pathology> pathologies;
 }
