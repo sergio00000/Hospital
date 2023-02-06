@@ -22,4 +22,7 @@ Run the following commands in the command line:
     - docker build -t challenge-1.0.0.jar .
     - docker-compose up
 
+When everything is up and running, go to your browser and go to this URL http://localhost:8080/challenge/swagger-ui/index.html too start using the endpoints.
+You can also use postman if you prefer.
+
 ### **Endpoints**
