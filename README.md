@@ -26,3 +26,6 @@ When everything is up and running, go to your browser and go to this URL http://
 You can also use postman if you prefer.
 
 ### **Endpoints**
+
+#### **Creating a Symptom**
+Use this URL /challenge/v1/symptoms
