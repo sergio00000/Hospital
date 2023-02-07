@@ -7,6 +7,9 @@ The objective is to create a simple webservice with an API to get, insert, updat
 
 It's a simple case of a hospital, that needs management of patients, doctors and consults. Every consult must have a doctor, speciality and patient associated.
 
+### **Entity Relation Diagram**
+
+<br/><img width=80% src="./readImg/image.png">
 
 ### **Requirements**
 
@@ -27,11 +30,25 @@ You can also use postman if you prefer.
 
 ### **Endpoints**
 
-#### **Creating a Symptom**
-Use this URL /challenge/v1/doctor its a POST method
-`` 
-{
-  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "name": "string"
-}
-``
+Note: the IDs are created automatically with UUID type.
+
+#### **Create a Doctor**
+Use this URL /challenge/v1/doctor its a POST method to create a doctor.
+
+#### **Create a Speciality**
+Use this URL /challenge/v1/speacialities its a POST method to create a speaciality, you will need to insert an existant UUID of a doctor. 
+
+#### **Create a Pathology**
+Use this URL /challenge/v1/pathologies its a POST method to create a pathology, you will need to insert an existant UUID of a speciality. 
+
+#### **Create a Symptom**
+Use this URL /challenge/v1/symptoms its a POST method to create a symptom, you will need to insert an existant UUID of a pathology. 
+
+#### **Create a Patient**
+Use this URL /challenge/v1/patients its a POST method to create a patient, you will need to insert at least one existant UUID of a pathology, you can add more because a patient can have multiple pathologies. 
+
+#### **Create a Consult**
+Use this URL /challenge/v1/consults its a POST method to create a consult, you will need to insert an existant UUID of a doctor, speciality and a patient. 
+
+
+
