@@ -35,25 +35,69 @@ Note: the IDs are created automatically with UUID type.
 #### **Create a Doctor**
 Use this URL /challenge/v1/doctor its a POST method to create a doctor.
 ```JSON
-  {
+{
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "name": "string"
-  }
+}
 ```
+
 #### **Create a Speciality**
 Use this URL /challenge/v1/speacialities its a POST method to create a speaciality, you will need to insert an existant UUID of a doctor. 
+```JSON
+{
+  "name": "string",
+  "doctor": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+   }
+}
+```
 
 #### **Create a Pathology**
 Use this URL /challenge/v1/pathologies its a POST method to create a pathology, you will need to insert an existant UUID of a speciality. 
+```JSON
+{
+  "name": "string",
+  "speciliaty": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+   }
+}
+```
 
 #### **Create a Symptom**
 Use this URL /challenge/v1/symptoms its a POST method to create a symptom, you will need to insert an existant UUID of a pathology. 
+```JSON
+{
+  "description": "Dor nos ouvidos",
+  "symptomId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
 
 #### **Create a Patient**
-Use this URL /challenge/v1/patients its a POST method to create a patient, you will need to insert at least one existant UUID of a pathology, you can add more because a patient can have multiple pathologies. 
+Use this URL /challenge/v1/patients its a POST method to create a patient, you will need to insert at least one existant UUID of a pathology, you can add more because a patient can have multiple pathologies.
+```JSON
+{
+  "name": "string",
+  "dateOfBirth": "2023-02-02",
+  "pathologies": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  ]
+}
+```
 
 #### **Create a Consult**
 Use this URL /challenge/v1/consults its a POST method to create a consult, you will need to insert an existant UUID of a doctor, speciality and a patient. 
-
-
+```JSON
+{
+  "doctor": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  },
+  "speciality": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  },
+  "patient": {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+```
 
