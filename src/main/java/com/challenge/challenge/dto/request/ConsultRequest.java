@@ -1,4 +1,4 @@
-package com.challenge.challenge.dto.response;
+package com.challenge.challenge.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,9 +11,10 @@ import java.util.UUID;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DoctorResponse {
+public class ConsultRequest {
 
     private UUID id;
-    private String name;
-
+    private UUID doctorId;
+    private UUID specialityId;
+    private UUID patientId;
 }

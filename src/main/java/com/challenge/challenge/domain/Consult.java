@@ -1,23 +1,37 @@
-//package com.challenge.challenge.domain;
-//
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-//
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Data
-//@Entity
-//public class Consult {
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private Long id;
-//
-//
-//}
+package com.challenge.challenge.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+import java.util.UUID;
+
+import static javax.persistence.GenerationType.AUTO;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
+@Builder
+public class Consult {
+
+    @Id
+    @GeneratedValue(strategy = AUTO)
+    @Column(updatable = false, nullable = false)
+    private UUID id;
+
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="doctor_id")
+    private Doctor doctor;
+
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="patient_id")
+    private Patient patient;
+
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="speciality_id")
+    private Speciality speciality;
+}
