@@ -34,7 +34,12 @@ Note: the IDs are created automatically with UUID type.
 
 #### **Create a Doctor**
 Use this URL /challenge/v1/doctor its a POST method to create a doctor.
-
+```JSON
+  {
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "string"
+  }
+```
 #### **Create a Speciality**
 Use this URL /challenge/v1/speacialities its a POST method to create a speaciality, you will need to insert an existant UUID of a doctor. 
 
