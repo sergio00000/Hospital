@@ -101,3 +101,5 @@ Use this URL /challenge/v1/consults its a POST method to create a consult, you w
 }
 ```
 
+Note: All the UUIDs used here are random
+
