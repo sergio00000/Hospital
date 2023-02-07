@@ -25,6 +25,6 @@ public class Symptom {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="pathology_id")
+    @JoinColumn(name="pathology_id",  nullable=false)
     private Pathology pathology;
 }

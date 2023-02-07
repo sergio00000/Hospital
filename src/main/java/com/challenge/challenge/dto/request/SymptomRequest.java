@@ -1,7 +1,6 @@
 package com.challenge.challenge.dto.request;
 
 
-import com.challenge.challenge.domain.Pathology;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -16,5 +15,5 @@ import java.util.UUID;
 public class SymptomRequest {
     private UUID id;
     private String description;
-    private Pathology pathology;
+    private UUID pathologyId;
 }

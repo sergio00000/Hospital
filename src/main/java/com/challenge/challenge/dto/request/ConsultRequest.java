@@ -1,8 +1,5 @@
 package com.challenge.challenge.dto.request;
 
-import com.challenge.challenge.domain.Doctor;
-import com.challenge.challenge.domain.Patient;
-import com.challenge.challenge.domain.Speciality;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -17,7 +14,7 @@ import java.util.UUID;
 public class ConsultRequest {
 
     private UUID id;
-    private Doctor doctor;
-    private Speciality speciality;
-    private Patient patient;
+    private UUID doctorId;
+    private UUID specialityId;
+    private UUID patientId;
 }

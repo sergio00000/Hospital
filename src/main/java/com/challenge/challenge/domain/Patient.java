@@ -31,6 +31,10 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     private Set<Consult> consults;
 
-    @ManyToMany(mappedBy = "pathologyPatients")
+    @ManyToMany
+    @JoinTable(
+            name = "patients_pathology",
+            joinColumns = @JoinColumn(name = "patient_id"),
+            inverseJoinColumns = @JoinColumn(name = "pathology_id"))
     private List<Pathology> pathologies;
 }

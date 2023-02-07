@@ -10,17 +10,14 @@ import static java.util.Optional.ofNullable;
 
 @Component
 public class SymptomRequestToSymptom implements Converter<SymptomRequest, Symptom> {
+
     @Override
     public Symptom convert(SymptomRequest source) {
         return ofNullable(source)
                 .map(s -> Symptom.builder()
                         .id(s.getId())
                         .description(s.getDescription())
-                        .pathology(ofNullable(s.getPathology())
-                                .map(p -> Pathology.builder()
-                                        .id(p.getId())
-                                        .build())
-                                .orElse(null))
+                        .pathology(Pathology.builder().id(s.getPathologyId()).build())
                         .build())
                 .orElse(null);
     }

@@ -28,14 +28,9 @@ public class Pathology {
     @JoinColumn(name="speciality_id")
     private Speciality speciality;
 
-    @ManyToMany
-    @JoinTable(
-            name = "patientsPathology",
-            joinColumns = @JoinColumn(name = "pathology_id"),
-            inverseJoinColumns = @JoinColumn(name = "patient_id"))
-    private Set<Patient> pathologyPatients;
+    @ManyToMany(mappedBy = "pathologies")
+    private Set<Patient> patients;
 
     @OneToMany(mappedBy = "pathology")
     private Set<Symptom> symptoms;
-
 }

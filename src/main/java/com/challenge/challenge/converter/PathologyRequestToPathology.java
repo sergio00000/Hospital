@@ -10,6 +10,8 @@ import static java.util.Optional.ofNullable;
 
 @Component
 public class PathologyRequestToPathology implements Converter<PathologyRequest, Pathology> {
+
+
     @Override
     public Pathology convert(PathologyRequest source) {
         return ofNullable(source)
