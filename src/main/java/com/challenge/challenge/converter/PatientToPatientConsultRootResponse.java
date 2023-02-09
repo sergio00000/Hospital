@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 import static java.util.Optional.ofNullable;
+import static java.util.stream.Collectors.toList;
 
 @Component
 @RequiredArgsConstructor
@@ -34,18 +35,30 @@ public class PatientToPatientConsultRootResponse implements Converter<Patient, P
                 .orElse(null);
     }
 
-    private static List<SymptomResponse> getSymptoms(Patient patient) {
-        List<Pathology> pathologies = ofNullable(patient.getPathologies()).orElse(Collections.emptyList());
-        List<SymptomResponse> symptoms = new ArrayList<>();
+    private List<SymptomResponse> getSymptoms(Patient patient) {
+//        List<Pathology> pathologies = ofNullable(patient.getPathologies()).orElse(Collections.emptyList());
+//        List<SymptomResponse> symptoms = new ArrayList<>();
+//
+//        for (Pathology pathology : pathologies) {
+//            symptoms.addAll(getSymptomResponse(pathology));
+//        }
 
-        for (Pathology pathology : pathologies) {
-            symptoms.addAll(getSymptomResponse(pathology));
-        }
+        //return symptoms;
+        return ofNullable(patient.getPathologies())
+                .orElse(Collections.emptyList()).stream()
+                .map(Pathology::getSymptoms)
+                .flatMap(s -> convertSymptomToSymptomResponse(s).stream())
+                .collect(toList());
 
-        return symptoms;
     }
 
-    private static List<SymptomResponse> getSymptomResponse(Pathology pathology) {
+    private List<SymptomResponse> convertSymptomToSymptomResponse(Set<Symptom> symptoms){
+        return symptoms.stream()
+                .map(s -> conversionService.convert(s, SymptomResponse.class))
+                .collect(toList());
+    }
+
+    private List<SymptomResponse> getSymptomResponse(Pathology pathology) {
         return pathology.getSymptoms().stream()
                 .map(s -> SymptomResponse.builder()
                         .symptomId(s.getId())
